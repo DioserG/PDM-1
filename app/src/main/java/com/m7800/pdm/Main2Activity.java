@@ -3,17 +3,23 @@ package com.m7800.pdm;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class Main2Activity extends AppCompatActivity{
 
-        final String TAG = "App";
-@Override
-protected void onCreate(Bundle savedInstanceState){
+        final String TAG = "CICLO";
+        private EditText tempC;
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        //A activity está sendo criada
-        Log.d(TAG, "onCreate");
+                tempC = findViewById(R.id.txtTempC);
+                //A activity está sendo criada
+                Log.d(TAG, "onCreate");
         }
 
         @Override
@@ -56,5 +62,10 @@ protected void onCreate(Bundle savedInstanceState){
                 super.onDestroy();
                 Log.d(TAG, "onDestroy");
                 //A activity está prestes a ser destruída (removida da memoria).
+        }
+
+        public void calClick(View view) {
+             String s = tempC.getText().toString();
+             Toast.makeText(this,s,Toast.LENGTH_SHORT).show();
         }
 }
